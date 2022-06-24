@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nssd/component/c_text_form_field.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -64,6 +65,7 @@ InputDecoration  getInputDecoration({required Widget prefixIcon,Widget? subfix, 
                   color: Color(0xff8B010B)
       
                 )),
+                Ctextfield(hintText: 'hi'),
                 SizedBox(height: 20.h),
                 TextFormField(
                     keyboardType: TextInputType.emailAddress,

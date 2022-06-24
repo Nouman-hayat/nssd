@@ -56,7 +56,7 @@ InputDecoration  getInputDecoration({required Widget prefixIcon,Widget? subfix, 
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                decoration: getInputDecoration(prefixIcon: const Icon(Icons.fingerprint_rounded), hintText: "**************" ,subfix:const Icon(Icons.remove_red_eye_outlined) )
+                decoration: getInputDecoration(prefixIcon: const Icon(Icons.fingerprint_rounded), hintText: "**************" ,subfix:const Icon(Icons.remove_red_eye_sharp) )
               ),
               SizedBox(height: 20.h),
               SizedBox(
