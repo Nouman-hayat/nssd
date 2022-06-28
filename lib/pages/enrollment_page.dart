@@ -5,6 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:nssd/component/c_dropdown_field.dart';
+import 'package:nssd/component/c_text_form_field.dart';
+import 'package:nssd/pages/academic_page..dart';
 import 'package:nssd/pages/classes/occupation.dart';
 
 class EnrollmentPage extends StatefulWidget {
@@ -71,22 +74,18 @@ class _EnrollmentPageState extends State<EnrollmentPage> {
           child: SafeArea(
             child: Column(
               children: [
-                SizedBox(
-                  height: 152.h,
-                  width: 532.w,
-                  child: Stack(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SvgPicture.asset('assets/svg/topLeft.svg'),
-                          SvgPicture.asset('assets/svg/topRight.svg'),
-                        ],
-                      )
-                    ],
-                  ),
+                 SizedBox(
+                height: 152.h,
+                width: double.infinity,
+                child: Stack(
+                  children: [
+                    Positioned(
+                        top: 0,
+                        right: 0,
+                        child: SvgPicture.asset('assets/svg/topRight.svg')),
+                  ],
                 ),
+              ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Column(
@@ -98,55 +97,75 @@ class _EnrollmentPageState extends State<EnrollmentPage> {
                               fontWeight: FontWeight.w700,
                               color: Color(0xff8B010B))),
                       SizedBox(height: 20.h),
-                      TextFormField(
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.next,
-                          decoration: getInputDecoration(
-                              prefixIcon: const Icon(Icons.app_registration),
-                              hintText: "Registration No.")),
+                     
+                              
+                    CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Registration No.',
+                      prefixIcon: Icon(Icons.app_registration),
+                     keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                    ),
                       SizedBox(height: 20.h),
-                       DropdownButtonFormField<String>(
-                        items: dropdownacedemicItems,
-                        onChanged: (String? value) {
-                          print(value);
-                        },
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.folder),
-                            hintText: "Acedemic Session")),
+                      
+
+                              CdropdownField(
+                      hintText: 'Qualification Level',
+                      items: dropdownacedemicItems,
+                      onChanged: (var value) {
+                        print(value!);
+                        print(value.id);
+                      },
+                      prefixIcon: const Icon(Icons.folder),
+                    ),
                              SizedBox(height: 20.h),
-                    DropdownButtonFormField<String>(
-                        items: dropdownyearItems,
-                        onChanged: (String? value) {
-                          print(value);
-                        },
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.calendar_month),
-                            hintText: "Acedemic Session Year")),
+                   
+                            
+                    CdropdownField(
+                      hintText: 'Acedemic Session Year',
+                      items: dropdownyearItems,
+                      onChanged: (var value) {
+                        print(value!);
+                        print(value.id);
+                      },
+                      prefixIcon: const Icon(Icons.calendar_month),
+                    ),
                              SizedBox(height: 20.h),
-                    DropdownButtonFormField<String>(
-                        items: dropdownprogramItems,
-                        onChanged: (String? value) {
-                          print(value);
-                        },
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.school),
-                            hintText: "Program")),
-                    SizedBox(height: 20.h),
-                      DropdownButtonFormField<String>(
-                          items: dropdowncourseItems,
-                          onChanged: (String? value) {
-                            print(value);
-                          },
-                          decoration: getInputDecoration(
-                              prefixIcon: const Icon(Icons.school),
-                              hintText: "Course")),
                     
+                                     
+                    CdropdownField(
+                      hintText: 'Program',
+                      items: dropdownprogramItems,
+                      onChanged: (var value) {
+                        print(value!);
+                        print(value.id);
+                      },
+                      prefixIcon: const Icon(Icons.school),
+                    ),
+                    SizedBox(height: 20.h),
+                    
+                      CdropdownField(
+                      hintText: 'Course',
+                      items: dropdowncourseItems,
+                      onChanged: (var value) {
+                        print(value!);
+                        print(value.id);
+                      },
+                      prefixIcon: const Icon(Icons.school),
+                    ),
                       SizedBox(height: 20.h),
                       SizedBox(
                         width: double.infinity,
                         child: TextButton(
                           onPressed: () {
                             print("hello world");
+                                                      Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Academic()));
                           },
                           style: TextButton.styleFrom(
                               shape: RoundedRectangleBorder(

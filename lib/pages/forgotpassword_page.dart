@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nssd/component/c_text_form_field.dart';
+import 'package:nssd/pages/resetpassword_page.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(
+             SizedBox(
                 height: 198.h,
                 child: Stack(
                   children: [
@@ -62,19 +64,26 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             fontWeight: FontWeight.w700,
                             color: Color(0xff8B010B))),
                     SizedBox(height: 20.h),
-                     TextFormField(
-                        obscureText: true,
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.phone),
-                            hintText: "Contact No",
-                            )),
+                    CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Contact Number',
+                      prefixIcon: Icon(Icons.phone),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
+                    ),
                     SizedBox(height: 80.h),
                     SizedBox(
                       width: double.infinity,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ResetpasswordPage()));
+                        },
                         style: TextButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),

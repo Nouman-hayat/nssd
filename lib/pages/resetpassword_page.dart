@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nssd/component/c_text_form_field.dart';
+import 'package:nssd/pages/login_page2.dart';
+import 'package:nssd/pages/signup_page.dart';
 
 
 class ResetpasswordPage extends StatefulWidget {
@@ -39,7 +42,7 @@ class _ResetpasswordPageState extends State<ResetpasswordPage> {
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(
+                SizedBox(
                 height: 198.h,
                 child: Stack(
                   children: [
@@ -62,38 +65,67 @@ class _ResetpasswordPageState extends State<ResetpasswordPage> {
                             fontWeight: FontWeight.w700,
                             color: Color(0xff8B010B))),
                     SizedBox(height: 20.h),
-                    TextFormField(
-                       obscureText: true,
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.lock),
-                            hintText: "Old password",
-                            subfix: const Icon(Icons.remove_red_eye_outlined))),
-                             SizedBox(height: 20.h),
-                    TextFormField(
-                        obscureText: true,
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.lock),
-                            hintText: "New password",
-                            subfix: const Icon(Icons.remove_red_eye_outlined))),
-                             SizedBox(height: 20.h),
-                    TextFormField(
+                   
+                             CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Old password',
+                      prefixIcon: Icon(Icons.lock),
+                   
                       obscureText: true,
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.lock),
-                            hintText: "Confirm Password",
-                            subfix: const Icon(Icons.remove_red_eye_outlined))),
+                      keyboardType: TextInputType.visiblePassword,
+                      
+                      textInputAction: TextInputAction.next,
+                      suffixIcon: const Icon(Icons.remove_red_eye_outlined),
+                    ),
+                             SizedBox(height: 20.h),
+                    
+                              CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'New password',
+                      prefixIcon: Icon(Icons.lock),
+
+                      obscureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+
+                      textInputAction: TextInputAction.next,
+                      suffixIcon: const Icon(Icons.remove_red_eye_outlined),
+                    ),
+                             SizedBox(height: 20.h),
+                     CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Confirm password',
+                      prefixIcon: Icon(Icons.lock),
+
+                      obscureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+
+                      textInputAction: TextInputAction.next,
+                      suffixIcon: const Icon(Icons.remove_red_eye_outlined),
+                    ),
                     SizedBox(height: 20.h),
                    
                     SizedBox(
                       width: double.infinity,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => LoginPage()));
+                        },
                         style: TextButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),

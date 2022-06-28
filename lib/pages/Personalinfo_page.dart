@@ -4,7 +4,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nssd/component/c_dropdown_field.dart';
 import 'package:nssd/pages/classes/occupation.dart';
+import 'package:nssd/component/c_text_form_field.dart';
+import 'package:nssd/pages/qualification_page.dart';
 
 class PersonalinfoPage extends StatefulWidget {
   const PersonalinfoPage({Key? key}) : super(key: key);
@@ -34,34 +37,35 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
         contentPadding: EdgeInsets.symmetric(vertical: 20));
   }
 
-  List<DropdownMenuItem<String>> get dropdownItems {
+  List<DropdownMenuItem<String>> get dropdownItemsgender {
     List<DropdownMenuItem<String>> menuItems = [
-      DropdownMenuItem(child: Text("Male"), value: "Male"),
-      DropdownMenuItem(child: Text("Female"), value: "Male"),
+      DropdownMenuItem(child: Text("male"), value: "male"),
+      DropdownMenuItem(child: Text("female"), value: "female"),
     ];
     return menuItems;
   }
 
 // province
 
-   List<DropdownMenuItem<String>> get dropdownproviceitem {
+  List<DropdownMenuItem<String>> get dropdownproviceitem {
     List<DropdownMenuItem<String>> menuItems = [
       DropdownMenuItem(child: Text("Punjab"), value: "Punjab"),
       DropdownMenuItem(child: Text("Sindh"), value: "Sindh"),
-        DropdownMenuItem(child: Text("KPK"), value: "KPK"),
-          DropdownMenuItem(child: Text("Balochistan"), value: "Balochistan"),
+      DropdownMenuItem(child: Text("KPK"), value: "KPK"),
+      DropdownMenuItem(child: Text("Balochistan"), value: "Balochistan"),
     ];
     return menuItems;
   }
+
   // minority
   List<DropdownMenuItem<String>> get dropdownminorityitem {
     List<DropdownMenuItem<String>> menuItems = [
       DropdownMenuItem(child: Text("Hindo"), value: "hindo"),
       DropdownMenuItem(child: Text("Others"), value: "others"),
-     
     ];
     return menuItems;
   }
+
   // minority
   List<DropdownMenuItem<String>> get dropdownnationalityitem {
     List<DropdownMenuItem<String>> menuItems = [
@@ -70,7 +74,8 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
     ];
     return menuItems;
   }
-    // disability
+
+  // disability
   List<DropdownMenuItem<String>> get dropdowndisabilityitem {
     List<DropdownMenuItem<String>> menuItems = [
       DropdownMenuItem(child: Text("yes"), value: "yes"),
@@ -78,6 +83,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
     ];
     return menuItems;
   }
+
 // occupation
   List<DropdownMenuItem<Occupation>> get occupation {
     List<DropdownMenuItem<Occupation>> occupationItems = [
@@ -99,23 +105,21 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
         lastDate: DateTime.now());
   }
 
+  bool isCheckboxTrue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SizedBox(
-           height: 152.h,
+            height: 152.h,
             width: double.infinity,
             child: Stack(
               children: [
-               
-              Positioned(
-                top: 0,right: 0,
-                child: SvgPicture.asset('assets/svg/topRight.svg')
-                ),
-               
-                
+                Positioned(
+                    top: 0,
+                    right: 0,
+                    child: SvgPicture.asset('assets/svg/topRight.svg')),
               ],
             ),
           ),
@@ -125,164 +129,236 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   SizedBox(height: 130.h),
+                  SizedBox(height: 150.h),
                   Text('Personal Information',
                       style: TextStyle(
                           fontSize: 32.sp,
                           fontWeight: FontWeight.w700,
                           color: Color(0xff8B010B))),
                   SizedBox(height: 20.h),
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      textInputAction: TextInputAction.next,
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Full Name")),
-                  SizedBox(height: 20.h),
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      textInputAction: TextInputAction.next,
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Short Name")),
-                  SizedBox(height: 20.h),
-                  TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      textInputAction: TextInputAction.next,
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.fingerprint),
-                          hintText: "82310-443744-9")),
-                  SizedBox(height: 20.h),
-                  DropdownButtonFormField<String>(
-                      items: dropdownItems,
-                      onChanged: (String? value) {
-                        print(value);
-                      },
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Gender")),
-                  SizedBox(height: 20.h),
-                  TextFormField(
-                      keyboardType: TextInputType.text,
-                      textInputAction: TextInputAction.next,
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Father Name")),
-                  SizedBox(height: 20.h),
-                  DropdownButtonFormField<Occupation>(
-                      items: occupation,
-                      onChanged: (Occupation? value) {
-                        print(value!);
-                        print(value.id);
-                      },
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Father Occupation")),
-                  SizedBox(height: 20.h),
-                  TextFormField(
-                    onTap: presentdatepicker,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.calendar_month),
-                      hintText: "Date of Birth",
-                      subfix: Icon(Icons.calendar_month),
-                    ),
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    hintText: 'Full Name',
+                    prefixIcon: Icon(Icons.person),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                    hintText: 'Short Name',
+                    prefixIcon: Icon(Icons.person),
+                  ),
+                  SizedBox(height: 20.h),
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: '82310-443744-9',
+                    prefixIcon: Icon(Icons.fingerprint),
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.email),
-                      hintText: "Email",
-                    ),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
+                  CdropdownField(
+                    hintText: 'Gender',
+                    items: dropdownItemsgender,
+                    onChanged: (var value) {
+                      print(value!);
+                      print(value.id);
+                    },
+                    prefixIcon: const Icon(Icons.person),
+                  ),
+                  SizedBox(height: 20.h),
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Father Name',
+                    prefixIcon: Icon(Icons.person),
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  SizedBox(height: 20.h),
+                  CdropdownField(
+                    hintText: 'Father Occupation',
+                    items: occupation,
+                    onChanged: (var value) {
+                      print(value!);
+                      print(value.id);
+                    },
+                    prefixIcon: const Icon(Icons.person),
+                  ),
+                  SizedBox(height: 20.h),
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                      presentdatepicker();
+                    },
+                    // initialValue: 'ABC',
+                    readOnly: true,
+                    showCursor: false,
+                    hintText: 'Date of Birth',
+                    prefixIcon: Icon(Icons.calendar_month),
+                    suffixIcon: Icon(Icons.calendar_today),
+                  ),
+                  SizedBox(height: 20.h),
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Email',
+                    prefixIcon: Icon(Icons.email),
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  SizedBox(height: 20.h),
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Contact Number',
+                    prefixIcon: Icon(Icons.phone),
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.phone),
-                      hintText: "Contact Number",
-                    ),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Other Contact Number',
+                    prefixIcon: Icon(Icons.phone),
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.phone),
-                      hintText: "Other Contact Number",
-                    ),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Guardian Contact Number',
+                    prefixIcon: Icon(Icons.phone),
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.phone),
-                      hintText: "Guardian Contact Number",
-                    ),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
-                    keyboardType: TextInputType.number,
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Postal Address',
+                    prefixIcon: Icon(Icons.location_on),
+                    keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.location_on),
-                      hintText: "Postal Address",
-                    ),
                   ),
                   SizedBox(height: 20.h),
-                  TextFormField(
-                    keyboardType: TextInputType.number,
+                  CTextFormField(
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Postal Address',
+                    prefixIcon: Icon(Icons.location_on),
+                    keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
-                    decoration: getInputDecoration(
-                      prefixIcon: const Icon(Icons.location_on),
-                      hintText: "Permanent Address",
-                    ),
                   ),
                   SizedBox(height: 20.h),
-                  DropdownButtonFormField<String>(
-                      items: dropdownproviceitem,
-                      onChanged: (String? value) {
-                        print(value);
-                      },
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Select province")),
+                  CdropdownField(
+                    hintText: 'Select province',
+                    items: dropdownproviceitem,
+                    onChanged: (var value) {
+                      print(value!);
+                      print(value.id);
+                    },
+                    prefixIcon: const Icon(Icons.person),
+                  ),
                   SizedBox(height: 20.h),
-                  DropdownButtonFormField<String>(
-                      items: dropdownminorityitem,
-                      onChanged: (String? value) {
-                        print(value);
-                      },
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.church),
-                          hintText: "Minority")),
+                  
+                 
+                  CTextFormField(
+                    readOnly: true,
+                    // controller: _dateOfBirthController,
+                    onTap: () {
+                      print('object');
+                    },
+                    // initialValue: 'ABC',
+
+                    hintText: 'Minorites',
+                    prefixIcon: const Icon(Icons.church),
+                    suffixIcon: Checkbox(
+                        onChanged: (value) {
+                          setState(() {
+                            isCheckboxTrue = !isCheckboxTrue;
+                          });
+                        },
+                        value: isCheckboxTrue),
+
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
+                  ),
                   SizedBox(height: 20.h),
-                  DropdownButtonFormField<String>(
-                      items: dropdowndisabilityitem,
-                      onChanged: (String? value) {
-                        print(value);
-                      },
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.wheelchair_pickup),
-                          hintText: "Disability")),
+                  CdropdownField(
+                    hintText: 'Disability',
+                    items: dropdowndisabilityitem,
+                    onChanged: (var value) {
+                      print(value!);
+                      print(value.id);
+                    },
+                    prefixIcon: const Icon(Icons.wheelchair_pickup),
+                  ),
                   SizedBox(height: 20.h),
-                  DropdownButtonFormField<String>(
-                      items: dropdownnationalityitem,
-                      onChanged: (String? value) {
-                        print(value);
-                      },
-                      decoration: getInputDecoration(
-                          prefixIcon: const Icon(Icons.person),
-                          hintText: "Other Nationality")),
+                  CdropdownField(
+                    hintText: 'Other Nationality',
+                    items: dropdownnationalityitem,
+                    onChanged: (var value) {
+                      print(value!);
+                      print(value.id);
+                    },
+                    prefixIcon: const Icon(Icons.person),
+                  ),
                   SizedBox(height: 20.h),
                   SizedBox(
                     width: double.infinity,
                     child: TextButton(
                       onPressed: () {
                         print("hello world");
+                         Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => qualificationPage()));
                       },
                       style: TextButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -302,7 +378,6 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
               ),
             ),
           ),
-         
         ],
       ),
     );

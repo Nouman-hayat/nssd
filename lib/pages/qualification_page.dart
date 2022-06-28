@@ -5,7 +5,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:nssd/component/c_dropdown_field.dart';
+import 'package:nssd/component/c_text_form_field.dart';
 import 'package:nssd/pages/classes/occupation.dart';
+import 'package:nssd/pages/enrollment_page.dart';
 
 class qualificationPage extends StatefulWidget {
   const qualificationPage({Key? key}) : super(key: key);
@@ -83,19 +86,15 @@ class _qualificationPageState extends State<qualificationPage> {
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(
+             SizedBox(
                 height: 152.h,
-                width: 532.w,
+                width: double.infinity,
                 child: Stack(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset('assets/svg/topLeft.svg'),
-                        SvgPicture.asset('assets/svg/topRight.svg'),
-                      ],
-                    )
+                    Positioned(
+                        top: 0,
+                        right: 0,
+                        child: SvgPicture.asset('assets/svg/topRight.svg')),
                   ],
                 ),
               ),
@@ -110,61 +109,91 @@ class _qualificationPageState extends State<qualificationPage> {
                             fontWeight: FontWeight.w700,
                             color: Color(0xff8B010B))),
                     SizedBox(height: 20.h),
-                    DropdownButtonFormField<String>(
-                        items: dropdownqualificationItems,
-                        onChanged: (String? value) {
-                          print(value);
-                        },
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.school),
-                            hintText: "Qualification Level")),
-                    SizedBox(height: 20.h),
-                    TextFormField(
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.school),
-                            hintText: "Degree title")),
-                    SizedBox(height: 20.h),
-                    TextFormField(
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.analytics),
-                            hintText: "Obtained Marks/ CGPA")),
-                    SizedBox(height: 20.h),
-                    TextFormField(
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.next,
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.analytics),
-                            hintText: "Total Marks/ CGPA")),
-                    SizedBox(height: 20.h),
-                    TextFormField(
-                      controller: datecontroler,
-                      showCursor: false, readOnly: true,
-                      onTap: selectdate,
-                      decoration: getInputDecoration(
-                        prefixIcon: const Icon(Icons.calendar_month),
-                        hintText: "Passing Year",
-                        subfix: Icon(Icons.calendar_month),
-                      ),
+                              CdropdownField(
+                      hintText: 'Qualification Level',
+                      items: dropdownqualificationItems,
+                      onChanged: (var value) {
+                        print(value!);
+                        print(value.id);
+                      },
+                      prefixIcon: const Icon(Icons.school),
                     ),
                     SizedBox(height: 20.h),
-                    DropdownButtonFormField<String>(
-                        items: dropdownuniversityItems,
-                        onChanged: (String? value) {
-                          print(value);
-                        },
-                        decoration: getInputDecoration(
-                            prefixIcon: const Icon(Icons.school),
-                            hintText: "Board & University")),
+                   
+                             CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Degree title',
+                      prefixIcon: Icon(Icons.school),
+                     keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                    ),
+                    SizedBox(height: 20.h),
+                   
+                             CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Obtained Marks/ CGPA',
+                      prefixIcon: Icon(Icons.analytics),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
+                    ),
+                    SizedBox(height: 20.h),
+                   
+                             CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                      },
+                      // initialValue: 'ABC',
+
+                      hintText: 'Total Marks/ CGPA',
+                      prefixIcon: Icon(Icons.analytics),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
+                    ),
+                    SizedBox(height: 20.h),
+                  
+                     CTextFormField(
+                      // controller: _dateOfBirthController,
+                      onTap: () {
+                        print('object');
+                        selectdate();
+                      },
+                      // initialValue: 'ABC',
+                      readOnly: true,
+                      showCursor: false,
+                      hintText: 'Passing Year',
+                      prefixIcon: Icon(Icons.calendar_month),
+                      suffixIcon: Icon(Icons.calendar_today),
+                    ),
+                    SizedBox(height: 20.h),
+                   
+                             CdropdownField(
+                      hintText: 'Board & University',
+                      items: dropdownuniversityItems,
+                      onChanged: (var value) {
+                        print(value!);
+                        print(value.id);
+                      },
+                      prefixIcon: const Icon(Icons.school),
+                    ),
                     SizedBox(height: 20.h),
                     SizedBox(
                       width: double.infinity,
                       child: TextButton(
                         onPressed: () {
                           print("hello world");
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => EnrollmentPage()));
                         },
                         style: TextButton.styleFrom(
                             shape: RoundedRectangleBorder(
