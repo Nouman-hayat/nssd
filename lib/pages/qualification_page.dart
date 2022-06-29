@@ -9,6 +9,7 @@ import 'package:nssd/component/c_dropdown_field.dart';
 import 'package:nssd/component/c_text_form_field.dart';
 import 'package:nssd/pages/classes/occupation.dart';
 import 'package:nssd/pages/enrollment_page.dart';
+import 'package:nssd/utils/constants.dart';
 
 class qualificationPage extends StatefulWidget {
   const qualificationPage({Key? key}) : super(key: key);
@@ -82,27 +83,20 @@ class _qualificationPageState extends State<qualificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-             SizedBox(
-                height: 152.h,
-                width: double.infinity,
-                child: Stack(
-                  children: [
-                    Positioned(
-                        top: 0,
-                        right: 0,
-                        child: SvgPicture.asset('assets/svg/topRight.svg')),
-                  ],
-                ),
-              ),
-              Padding(
+      body: SafeArea(
+        child: Stack(
+          children: [
+           Positioned(
+               top: 0,
+               right: 0,
+               child: SvgPicture.asset('assets/svg/topRight.svg')),
+            SingleChildScrollView(
+              child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: 120.h),
                     Text('Qualification',
                         style: TextStyle(
                             fontSize: 32.sp,
@@ -118,7 +112,7 @@ class _qualificationPageState extends State<qualificationPage> {
                       },
                       prefixIcon: const Icon(Icons.school),
                     ),
-                    SizedBox(height: 20.h),
+                     kPageItemSpacing,
                    
                              CTextFormField(
                       // controller: _dateOfBirthController,
@@ -126,13 +120,13 @@ class _qualificationPageState extends State<qualificationPage> {
                         print('object');
                       },
                       // initialValue: 'ABC',
-
+            
                       hintText: 'Degree title',
                       prefixIcon: Icon(Icons.school),
                      keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                     ),
-                    SizedBox(height: 20.h),
+                  kPageItemSpacing,
                    
                              CTextFormField(
                       // controller: _dateOfBirthController,
@@ -140,13 +134,13 @@ class _qualificationPageState extends State<qualificationPage> {
                         print('object');
                       },
                       // initialValue: 'ABC',
-
+            
                       hintText: 'Obtained Marks/ CGPA',
                       prefixIcon: Icon(Icons.analytics),
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                     ),
-                    SizedBox(height: 20.h),
+                     kPageItemSpacing,
                    
                              CTextFormField(
                       // controller: _dateOfBirthController,
@@ -154,13 +148,13 @@ class _qualificationPageState extends State<qualificationPage> {
                         print('object');
                       },
                       // initialValue: 'ABC',
-
+            
                       hintText: 'Total Marks/ CGPA',
                       prefixIcon: Icon(Icons.analytics),
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                     ),
-                    SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   
                      CTextFormField(
                       // controller: _dateOfBirthController,
@@ -175,7 +169,7 @@ class _qualificationPageState extends State<qualificationPage> {
                       prefixIcon: Icon(Icons.calendar_month),
                       suffixIcon: Icon(Icons.calendar_today),
                     ),
-                    SizedBox(height: 20.h),
+                     kPageItemSpacing,
                    
                              CdropdownField(
                       hintText: 'Board & University',
@@ -186,7 +180,7 @@ class _qualificationPageState extends State<qualificationPage> {
                       },
                       prefixIcon: const Icon(Icons.school),
                     ),
-                    SizedBox(height: 20.h),
+                      kPageItemSpacing,
                     SizedBox(
                       width: double.infinity,
                       child: TextButton(
@@ -208,12 +202,12 @@ class _qualificationPageState extends State<qualificationPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

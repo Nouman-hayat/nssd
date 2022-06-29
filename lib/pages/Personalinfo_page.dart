@@ -8,6 +8,7 @@ import 'package:nssd/component/c_dropdown_field.dart';
 import 'package:nssd/pages/classes/occupation.dart';
 import 'package:nssd/component/c_text_form_field.dart';
 import 'package:nssd/pages/qualification_page.dart';
+import 'package:nssd/utils/constants.dart';
 
 class PersonalinfoPage extends StatefulWidget {
   const PersonalinfoPage({Key? key}) : super(key: key);
@@ -111,18 +112,10 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
     return Scaffold(
       body: Stack(
         children: [
-          SizedBox(
-            height: 152.h,
-            width: double.infinity,
-            child: Stack(
-              children: [
-                Positioned(
-                    top: 0,
-                    right: 0,
-                    child: SvgPicture.asset('assets/svg/topRight.svg')),
-              ],
-            ),
-          ),
+          Positioned(
+              top: 0,
+              right: 0,
+              child: SvgPicture.asset('assets/svg/topRight.svg')),
           SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -135,7 +128,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                           fontSize: 32.sp,
                           fontWeight: FontWeight.w700,
                           color: Color(0xff8B010B))),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -147,7 +140,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     hintText: 'Full Name',
                     prefixIcon: Icon(Icons.person),
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -159,7 +152,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     hintText: 'Short Name',
                     prefixIcon: Icon(Icons.person),
                   ),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -172,7 +165,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   CdropdownField(
                     hintText: 'Gender',
                     items: dropdownItemsgender,
@@ -182,7 +175,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     },
                     prefixIcon: const Icon(Icons.person),
                   ),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -195,7 +188,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   CdropdownField(
                     hintText: 'Father Occupation',
                     items: occupation,
@@ -205,7 +198,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     },
                     prefixIcon: const Icon(Icons.person),
                   ),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -219,7 +212,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     prefixIcon: Icon(Icons.calendar_month),
                     suffixIcon: Icon(Icons.calendar_today),
                   ),
-                  SizedBox(height: 20.h),
+                  kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -232,7 +225,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -245,7 +238,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -258,7 +251,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                  kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -271,7 +264,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                  kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -284,7 +277,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+              kPageItemSpacing,
                   CTextFormField(
                     // controller: _dateOfBirthController,
                     onTap: () {
@@ -297,7 +290,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                   CdropdownField(
                     hintText: 'Select province',
                     items: dropdownproviceitem,
@@ -307,7 +300,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     },
                     prefixIcon: const Icon(Icons.person),
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   
                  
                   CTextFormField(
@@ -331,7 +324,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     keyboardType: TextInputType.text,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(height: 20.h),
+                  kPageItemSpacing,
                   CdropdownField(
                     hintText: 'Disability',
                     items: dropdowndisabilityitem,
@@ -341,7 +334,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     },
                     prefixIcon: const Icon(Icons.wheelchair_pickup),
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   CdropdownField(
                     hintText: 'Other Nationality',
                     items: dropdownnationalityitem,
@@ -351,7 +344,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                     },
                     prefixIcon: const Icon(Icons.person),
                   ),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   SizedBox(
                     width: double.infinity,
                     child: TextButton(
@@ -373,7 +366,7 @@ class _PersonalinfoPageState extends State<PersonalinfoPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20.h),
+             
                 ],
               ),
             ),

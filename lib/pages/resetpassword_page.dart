@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nssd/component/c_text_form_field.dart';
 import 'package:nssd/pages/login_page2.dart';
 import 'package:nssd/pages/signup_page.dart';
+import 'package:nssd/utils/constants.dart';
 
 
 class ResetpasswordPage extends StatefulWidget {
@@ -38,41 +39,34 @@ class _ResetpasswordPageState extends State<ResetpasswordPage> {
   @override
   Widget build(BuildContext context) {
   return   Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-                SizedBox(
-                height: 198.h,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: SvgPicture.asset('assets/svg/signin.svg'),
-                    ),
-                  ],
-                ),
+      body: SafeArea(
+        child: Stack(
+          children: [
+              Positioned(
+                top: 0,
+                right: 0,
+                child: SvgPicture.asset('assets/svg/signin.svg'),
               ),
-              Padding(
+            SingleChildScrollView(
+              child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                      SizedBox(height: 140.h),
                     Text('Reset Password',
                         style: TextStyle(
                             fontSize: 32.sp,
                             fontWeight: FontWeight.w700,
                             color: Color(0xff8B010B))),
-                    SizedBox(height: 20.h),
-                   
+                     kPageItemSpacing,
                              CTextFormField(
                       // controller: _dateOfBirthController,
                       onTap: () {
                         print('object');
                       },
                       // initialValue: 'ABC',
-
+            
                       hintText: 'Old password',
                       prefixIcon: Icon(Icons.lock),
                    
@@ -82,7 +76,7 @@ class _ResetpasswordPageState extends State<ResetpasswordPage> {
                       textInputAction: TextInputAction.next,
                       suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                     ),
-                             SizedBox(height: 20.h),
+                               kPageItemSpacing,
                     
                               CTextFormField(
                       // controller: _dateOfBirthController,
@@ -90,34 +84,34 @@ class _ResetpasswordPageState extends State<ResetpasswordPage> {
                         print('object');
                       },
                       // initialValue: 'ABC',
-
+            
                       hintText: 'New password',
                       prefixIcon: Icon(Icons.lock),
-
+            
                       obscureText: true,
                       keyboardType: TextInputType.visiblePassword,
-
+            
                       textInputAction: TextInputAction.next,
                       suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                     ),
-                             SizedBox(height: 20.h),
+                             kPageItemSpacing,
                      CTextFormField(
                       // controller: _dateOfBirthController,
                       onTap: () {
                         print('object');
                       },
                       // initialValue: 'ABC',
-
+            
                       hintText: 'Confirm password',
                       prefixIcon: Icon(Icons.lock),
-
+            
                       obscureText: true,
                       keyboardType: TextInputType.visiblePassword,
-
+            
                       textInputAction: TextInputAction.next,
                       suffixIcon: const Icon(Icons.remove_red_eye_outlined),
                     ),
-                    SizedBox(height: 20.h),
+                     kPageItemSpacing,
                    
                     SizedBox(
                       width: double.infinity,
@@ -144,8 +138,8 @@ class _ResetpasswordPageState extends State<ResetpasswordPage> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

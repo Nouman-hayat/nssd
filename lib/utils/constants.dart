@@ -16,7 +16,7 @@ const Color kDarkPlaceholder = Color(0xFF2D3655);
 const Color kDarkPlaceholderText = Color(0xFF525C7C);
 const Color kDarkBackground = Color(0xFF2D3251);
 const Color kDarkError = Color(0xFFD0524A);
-
+const Color kGrayColor = Color(0xFF8D989D);
 const Duration kAnimationDuration = Duration(milliseconds: 300);
 const Curve kAnimationCurve = Curves.easeInOut;
 
@@ -53,3 +53,45 @@ BorderRadiusGeometry kBottomSheetBorderRadius = BorderRadius.only(
   topLeft: Radius.circular(16.r),
   topRight: Radius.circular(16.r),
 );
+
+
+
+
+
+// Padding on Input textfield
+
+
+// Page Padding or Screen Padding
+
+final kPageItemSpacing = SizedBox(height: 20.h);
+final kPageItemSpacing2 = SizedBox(height: 40.h);
+
+// Padding on ElevatedButton
+final kElevatedButtonPadding = EdgeInsets.symmetric(vertical: 18.h);
+
+// const Duration kAnimationDuration = Duration(milliseconds: 300);
+// const Curve kAnimationCurve = Curves.easeInOut;
+
+// EdgeInsets kCardPadding = EdgeInsets.symmetric(
+//   horizontal: 16.w,
+//   vertical: 16.h,
+// );
+
+// EdgeInsets kInputFieldPadding = EdgeInsets.symmetric(
+//   horizontal: 16.w,
+//   vertical: 16.h,
+// );
+
+// BorderRadiusGeometry kCardBorderRadius = BorderRadius.circular(
+//   16.r,
+// );
+
+// BorderRadius kAppIconBorderRadius = BorderRadius.circular(
+//   8.r,
+// );
+
+// BorderRadiusGeometry kBottomSheetBorderRadius = BorderRadius.only(
+//   topLeft: Radius.circular(16.r),
+//   topRight: Radius.circular(16.r),
+// );
+

@@ -9,14 +9,14 @@ import '../errors/exceptions.dart';
 class RouteGenerator {
   static const String splash = '/';
   static const String login = 'login';
-   static const String profile = 'profile';
+   static const String Personalinfo_page = 'profile';
   RouteGenerator._();
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case login:
         return MaterialPageRoute(builder: (_) => const LoginPage());
-      case profile:
+      case Personalinfo_page:
         return MaterialPageRoute(builder: (_) => const PersonalinfoPage());
        
        

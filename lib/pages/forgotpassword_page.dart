@@ -1,4 +1,4 @@
-import 'dart:ui';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nssd/component/c_text_form_field.dart';
 import 'package:nssd/pages/resetpassword_page.dart';
+import 'package:nssd/pages/verify_pin_page.dart';
+import 'package:nssd/utils/constants.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -63,7 +65,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             fontSize: 32.sp,
                             fontWeight: FontWeight.w700,
                             color: Color(0xff8B010B))),
-                    SizedBox(height: 20.h),
+                    kPageItemSpacing,
                     CTextFormField(
                       // controller: _dateOfBirthController,
                       onTap: () {
@@ -82,7 +84,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       child: TextButton(
                         onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ResetpasswordPage()));
+                              builder: (context) => OtpPage()));
+                            
                         },
                         style: TextButton.styleFrom(
                             shape: RoundedRectangleBorder(

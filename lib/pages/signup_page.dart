@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nssd/pages/login_page2.dart';
+import 'package:nssd/utils/constants.dart';
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
 
@@ -37,18 +38,11 @@ class _SignupPageState extends State<SignupPage> {
         body: SafeArea(
           child: Stack(
             children: [
-              SizedBox(
-              height: 198.h,
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: SvgPicture.asset('assets/svg/signin.svg'),
-                  ),
-                ],
+              Positioned(
+                top: 0,
+                right: 0,
+                child: SvgPicture.asset('assets/svg/signin.svg'),
               ),
-            ),
               
               SingleChildScrollView(
                 child: Padding(
@@ -56,53 +50,53 @@ class _SignupPageState extends State<SignupPage> {
                   child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     SizedBox(height: 160.h),
+                     SizedBox(height: 120.h),
                     Text('Sign up', style: TextStyle(
                     fontSize: 32.sp,
                     fontWeight: FontWeight.w700,
                     color: Color(0xff8B010B)
                     
                   )),
-                  SizedBox(height: 20.h),
+                   kPageItemSpacing,
                   TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       decoration: getInputDecoration(prefixIcon:  const Icon(Icons.fingerprint), hintText:"82310-443744-9")
                     ),
-                   SizedBox(height: 20.h),
+                     kPageItemSpacing,
                    TextFormField(
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       decoration: getInputDecoration(prefixIcon:  const Icon(Icons.person), hintText:"Full Name")
                     ),
-                    SizedBox(height: 20.h),
+                     kPageItemSpacing,
                 
                    TextFormField(
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.next,
                       decoration: getInputDecoration(prefixIcon:  const Icon(Icons.person), hintText:"Short Name")
                     ),
-                         SizedBox(height: 20.h),
+                           kPageItemSpacing,
                           TextFormField(
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.next,
                       decoration: getInputDecoration(prefixIcon:  const Icon(Icons.phone), hintText:"Phone")
                     ),
-                         SizedBox(height: 20.h),
+                           kPageItemSpacing,
                     TextFormField(
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
                       textInputAction: TextInputAction.next,
                       decoration: getInputDecoration(prefixIcon: const Icon(Icons.lock), hintText: "Password" ,subfix:const Icon(Icons.remove_red_eye_outlined) )
                     ),
-                     SizedBox(height: 20.h),
+                    kPageItemSpacing,
                     TextFormField(
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: true,
                       textInputAction: TextInputAction.next,
                       decoration: getInputDecoration(prefixIcon: const Icon(Icons.lock), hintText: "Confirm Password" ,subfix:const Icon(Icons.remove_red_eye_outlined) )
                     ),
-                    SizedBox(height: 60.h),
+                      kPageItemSpacing,
                    
                  SizedBox(
                       width: double.infinity,
@@ -124,7 +118,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                  SizedBox(height: 20.h),
+                    kPageItemSpacing,
                       Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
